@@ -1,0 +1,14 @@
+
+Types of Classloader
+
+Bootstrap classloader : this loader is responsible for load classes from bootstarp classpath i.e. rt.jar /core java api class
+Extention classloader : this loader is responsible for load classes from EXT folder / lib / jre
+Application classloader : this loader is responsible for load class from application class path i.e. env variables
+
+Various memory areas in JVM
+
+Method Area : Class level Data will be there. Static data
+Heap Memory : Object Data will be there
+Stack : For every thread separate runtime stack is created, Each entry in stack is known as Stack Frame.
+PC Registers : For every thread PC register is created to hold current and next instruction of thread.
+Native Method stacks : For every thread one is created to hold native method information.

@@ -1,0 +1,41 @@
+Microservices 
+
+- Microservice architecture is build application in logically independent parts instead of Monolethic application.
+
+Benefits
+
+- Scalability
+- Modular Approach
+- 
+
+Disadvantages
+
+- Need to maintain many individual projects
+- Need to make sure release process is fine
+
+
+Difference between Microservice and Webservices
+
+Logically both are Same, But Microservices are intent for particular consumers but Webservices are generic
+
+Ways to communicate between microservices
+
+ - RestTemplate : Current(Soon will get depricated)
+ 
+	RestTemplate take two objects, first one is URI and Second one is Object REturned by API.
+	
+ - WebClient : Future
+
+	webclient object is created by builder pattern, like below
+	
+	WebClientBuilder.build
+	.get() //Type of HTTP method
+	.uri("") // URI of producer
+	.retrieve() // Exactly call the API
+	.bodyToMono(TypeOfClass) // Convert the returned response to specific Object.
+	.block(); // Block means it is a sync call. It will wait till the object returns
+	
+	
+Discovery Server / Discovery Service /Discovery Pattern : Discovery server is the entity to resolve microservice end point url by its NameSpace. It registers all services and act as a URL resolver for the microservices.
+
+Eureka is the implementation of Discovery server. In this we need to have one Eureka Server centrally located and all microservices we need to configure as eureka client.
