@@ -1,0 +1,24 @@
+Bean Circular Dependencies
+
+BeanCurrentlyInCreationException while loading context is thrown and generally it occurs for Constructor Dependency injection.
+
+Example : A -> B -> A (Bean A is dependent on Bean B and Bean B is again dependent on Bean A)
+
+or 
+
+A -> B -> C -> D -> E -> A (Long Circular dependency)
+
+WorkArounds
+
+-> For Circular Dependencies issues it seems problem is in your design and responsibilites are not well seperated. Best way of get rid of circular dependency is refactor your Design. But if you cannot redesign the components because of Legacy code, Time constraints etc etc then try any of below.
+
+-> Use of @Lazy annotation 
+
+-> Use Setter Injection
+
+-> Use @PostConstruct
+
+-> Use ApplicationContextAware and InitializingBean : By implementing this two interfaces we can get ApplicationContext in bean and we can change setting of bean creation.
+
+
+
